@@ -16,11 +16,12 @@
         /* Projects Section Styles */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
             gap: 30px;
             margin-top: 40px;
             padding: 0 20px;
-            max-width: 900px;
+            max-width: 1200px;
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
             justify-content: center;
@@ -86,7 +87,156 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
+        .social-icon i {
+            margin-right: 8px;
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+
+        #projects {
+            max-width: 100% !important;
+        }
+
+        @media screen and (min-width: 992px) {
+            .project-grid.grid-3-col {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Hobby Tags Styles */
+        .hobby-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin: 8px;
+            background-color: #f0fdf4;
+            color: #166534;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #bbf7d0;
+            cursor: default;
+        }
+
+        .hobby-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #dcfce7;
+            border-color: #86efac;
+        }
+
+        .hobby-tag i {
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+
+        /* Achievement Card Styles - Premium Redesign */
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 24px;
+            margin: 15px;
+            width: 320px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #10b981, #fbbf24);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .achievement-card:hover::before {
+            opacity: 1;
+        }
+
+        .achievement-img-container {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .achievement-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .achievement-card:hover .achievement-img-container img {
+            transform: scale(1.1);
+        }
+
+        .achievement-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .achievement-category {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .achievement-category i {
+            font-size: 12px;
+        }
+
+        .achievement-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #064e3b;
+            line-height: 1.3;
+        }
+
+        .achievement-icon-float {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 60px;
+            color: rgba(16, 185, 129, 0.05);
+            transform: rotate(-15deg);
+            transition: all 0.4s ease;
+        }
+
+        .achievement-card:hover .achievement-icon-float {
+            color: rgba(16, 185, 129, 0.1);
+            transform: rotate(0deg) scale(1.1);
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta charset="utf-8">
     <title>Yalini | Fullstack Developer</title>
 
@@ -153,6 +303,11 @@
                             <div class="link-to-page">Projects</div>
                         </a>
                     </li>
+                    <li class="list-item-11">
+                        <a href="#life-skills" class="nav-link w-inline-block">
+                            <div class="link-to-page">Life Skills</div>
+                        </a>
+                    </li>
 
                     <li class="list-item-11">
                         <a href="#contact" class="nav-link w-inline-block">
@@ -166,10 +321,8 @@
     <main id="main" role="main" class="main-section">
         <div class="blog-div white _4">
             <div class="div-block-177">
-                <div
-                    style="font-size: 1.6rem; font-weight: 600; color:black; margin-bottom: 12px; letter-spacing: 0.5px;">
-                    Hi, I am Yalini</div>
-                <h1 class="heading-2">Clean Logic Clear Design</h1>
+                <h1 class="heading-2">Hi, I am Yalini</h1>
+                <h2 class="heading-2" style="font-size: 2rem;">Clean Logic Clear Design</h2>
                 <p>
                     I Turn Complex Ideas Into Simple, Scalable Web Applications Through Thoughtful Full-Stack
                     Development
@@ -194,7 +347,7 @@
                 <div class="div-block-182">
                     <h2>Learning. Building. Growing.</h2>
                 </div>
-                <p>I’m a full-stack development learner with a strong foundation in HTML, CSS, Tailwind CSS,
+                <p>I’m an aspiring full-stack developer with a strong foundation in HTML, CSS, Tailwind CSS,
                     Bootstrap, Python, FastAPI, and SQL. I enjoy problem-solving and building clean, functional
                     web interfaces, I design user-focused layouts using Figma.
                     I use GitHub to manage and improve my projects and continuously refine my workflow. <br> <br>
@@ -245,6 +398,45 @@
             </ul>
         </div>
 
+        <div id="life-skills" class="pr" style="padding-top: 80px; padding-bottom: 80px;">
+            <div class="h2-block centered">
+                <h2>Skills Beyond Code<br></h2>
+                <p>Soft skills that complement my technical expertise.</p>
+            </div>
+            <ul role="list" class="press w-list-unstyled">
+                <li class="cell-10"><a href="#" class="media-card w-inline-block">
+                        <div class="div-block-109" style="background-color: rgb(217, 255, 182); width: 90%;"></div>
+                        <h3 class="h3-bis">Communication</h3>
+                        <p>90% Proficiency</p>
+                    </a></li>
+                <li class="cell-10"><a href="#" class="media-card w-inline-block">
+                        <div class="div-block-109" style="background-color: rgb(217, 255, 182); width: 85%;"></div>
+                        <h3 class="h3-bis">Presentation</h3>
+                        <p>85% Proficiency</p>
+                    </a></li>
+                <li class="cell-10"><a href="#" class="media-card w-inline-block">
+                        <div class="div-block-109" style="background-color: rgb(217, 255, 182); width: 75%;"></div>
+                        <h3 class="h3-bis">Time management</h3>
+                        <p>75% Proficiency</p>
+                    </a></li>
+                <li class="cell-10"><a href="#" class="media-card w-inline-block">
+                        <div class="div-block-109" style="background-color: rgb(217, 255, 182); width: 80%;"></div>
+                        <h3 class="h3-bis">Learning mindset</h3>
+                        <p>80% Proficiency</p>
+                    </a></li>
+                <li class="cell-10"><a href="#" class="media-card w-inline-block">
+                        <div class="div-block-109" style="background-color: rgb(217, 255, 182); width: 80%;"></div>
+                        <h3 class="h3-bis">Leadership</h3>
+                        <p>80% Proficiency</p>
+                    </a></li>
+                <li class="cell-10"><a href="#" class="media-card w-inline-block">
+                        <div class="div-block-109" style="background-color: rgb(217, 255, 182); width: 95%;"></div>
+                        <h3 class="h3-bis">Team collaboration</h3>
+                        <p>95% Proficiency</p>
+                    </a></li>
+            </ul>
+        </div>
+
         <div id="projects" class="pr" style="padding-top: 80px; padding-bottom: 80px;">
             <div class="h2-block centered">
                 <h2>Projects<br></h2>
@@ -255,11 +447,11 @@
                 <!-- Project Card 1 -->
                 <a href="https://yaliiniii.github.io/Static-website/" target="_blank" class="project-card">
                     <div class="project-image" style="background-color: #E0F7FA;">
-                        <img src="./assets/img3.png">
+                        <img src="./assets/img2.png">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">All About Sports</h3>
-                        <p class="project-description">A static website that help the people to find their right coaches
+                        <p class="project-description">A static website that helps people to find their right coaches
                             to kick start or continue their journey in sports.</p>
                         <span class="project-link">View Project &rarr;</span>
                     </div>
@@ -268,16 +460,134 @@
                 <!-- Project Card 2 -->
                 <a href="#" class="project-card">
                     <div class="project-image" style="background-color: #E8F5E9;">
-                        <img src="./assets/img2.png">
+                        <img src="./assets/img3.png">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">FreshPath</h3>
-                        <p class="project-description"> A Habit tracker that help the people to quit their smoking
-                            habit. This is used to track their daily habits, visualize their progress, and connect with
+                        <p class="project-description"> A Habit tracker that helps people quit their smoking habit.
+                            This is used to track their daily habits, visualize their progress, and connect with
                             wellness experts all in one beautiful space.</p>
                         <span class="project-link">View Project &rarr;</span>
                     </div>
                 </a>
+            </div>
+
+            <div class="h2-block centered" style="margin-top: 100px;">
+                <h2>Life Skills Projects<br></h2>
+                <p>Projects showcasing leadership and soft skills.</p>
+            </div>
+
+            <div class="project-grid grid-3-col">
+                <!-- Life Skill Project 1 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #FFF3E0;">
+                        <img src="./assets/squad1.png" alt="Life Skill Project 1">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Squad Power Presentation</h3>
+                        <p class="project-description">This was our first presentation as a squad, showcasing strong
+                            teamwork, communication, and presentation skills.We secured third place in the presentation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Life Skill Project 2 -->
+                <a href="#" class="project-card">
+                    <div class="project-image" style="background-color: #F3E5F5;">
+                        <img src="./assets/squad2.jpeg" alt="Life Skill Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Product Building Challenge</h3>
+                        <p class="project-description">I led a squad as the team lead in a product-building challenge,
+                            and our squad received a Special Mention. We successfully built a functional,
+                            budget-friendly AC, Seven Star AC, within a strict budget of ₹500, demonstrating leadership,
+                            innovation, teamwork, and cost-efficient problem-solving.</p>
+                    </div>
+                </a>
+
+                <!-- Life Skill Project 3 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #E8F5E9;">
+                        <img src="./assets/workplace.png" alt="Life Skill Project 3">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Work Place Study</h3>
+                        <p class="project-description">As part of a workplace study, we connected with industry professionals through LinkedIn, gained insights into seven key fields within an IT company, and presented our findings through a structured presentation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hobbies-interests" class="pr" style="padding-top: 80px; padding-bottom: 80px;">
+            <div class="h2-block centered">
+                <h2>Hobbies & Interests<br></h2>
+                <p>Beyond the code.</p>
+            </div>
+
+            <div class="project-grid" style="grid-template-columns: minmax(300px, 600px); justify-content: center;">
+                <!-- Hobbies & Interests -->
+                <div class="project-card" style="padding: 24px; cursor: default;">
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                        <span class="hobby-tag"><i class="fas fa-utensils"></i>Cooking</span>
+                        <span class="hobby-tag"><i class="fas fa-running"></i>Sports</span>
+                        <span class="hobby-tag"><i class="fas fa-music"></i>Listening Music</span>
+                        <span class="hobby-tag"><i class="fas fa-tv"></i>Watching Movie</span>
+                        <span class="hobby-tag"><i class="fas fa-palette"></i>Resin Art</span>
+                        <span class="hobby-tag"><i class="fas fa-plane"></i>Traveling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="achievements" class="pr" style="padding-top: 40px; padding-bottom: 80px;">
+            <div class="h2-block centered">
+                <h2>Achievements<br></h2>
+                <p>Milestones and Recognitions.</p>
+            </div>
+
+            <div class="project-grid"
+                style="display: flex; flex-wrap: wrap; justify-content: center; max-width: 1200px; margin: 0 auto;">
+                <!-- Achievement 1: Leadership -->
+                <div class="achievement-card">
+                    <div class="achievement-img-container">
+                        <img src="./assets/sports.jpeg" alt="Leadership Award">
+                    </div>
+                    <div class="achievement-info">
+                        <div class="achievement-category">
+                            <i class="fas fa-medal"></i> Recognition
+                        </div>
+                        <div class="achievement-title">Sports Achievements: Zone and District-level medalist in Hockey, Boxing, and Athletics, earning multiple podium finishes.</div>
+                    </div>
+                    <i class="fas fa-medal achievement-icon-float"></i>
+                </div>
+
+                <!-- Achievement 2: Product Challenge -->
+                <div class="achievement-card">
+                    <div class="achievement-img-container">
+                        <img src="./assets/itc.jpeg" alt="Product Challenge">
+                    </div>
+                    <div class="achievement-info">
+                        <div class="achievement-category">
+                            <i class="fas fa-certificate"></i> Excellence
+                        </div>
+                        <div class="achievement-title">Special Recognition in ICT Lab Activities for innovative problem-solving and idea presentation.</div>
+                    </div>
+                    <i class="fas fa-trophy achievement-icon-float"></i>
+                </div>
+
+                <!-- Achievement 3: Volunteering -->
+                <div class="achievement-card">
+                    <div class="achievement-img-container">
+                        <img src="./assets/certificate.jpeg" alt="Volunteering">
+                    </div>
+                    <div class="achievement-info">
+                        <div class="achievement-category">
+                            <i class="fas fa-hands-helping"></i> Certified Sports Achievements
+                        </div>
+                        <div class="achievement-title">Certified for achievement in competitive sports, reflecting discipline, teamwork, and competitive excellence.</div>
+                    </div>
+                    <i class="fas fa-heart achievement-icon-float"></i>
+                </div>
             </div>
         </div>
     </main>
@@ -286,7 +596,7 @@
     <footer id="contact" role="contentinfo" class="shall-we-section">
         <div class="shall-we green  ">
             <div class="div-block-136">
-                <h2 class="h2-bis highlight">Shall we?<br></h2>
+                <h2 class="highlight">Lets connect?<br></h2>
             </div>
             <div class="div-block-137">
                 <p>I’m eager to explore opportunities in Full-Stack Development.
@@ -296,12 +606,12 @@
                     <li class="list-item-8">
                         <a href="https://www.linkedin.com/in/yalini-subburaj-0a7b09390/" target="_blank"
                             class="social-icon w-inline-block">
-                            <div class="link-to-page social">LinkedIn</div>
+                            <div class="link-to-page social"><i class="fab fa-linkedin"></i> LinkedIn</div>
                         </a>
                     </li>
                     <li class="list-item-8">
                         <a href="https://wa.me/918220614123" target="_blank" class="social-icon w-inline-block">
-                            <div class="link-to-page social">Whatsapp</div>
+                            <div class="link-to-page social"><i class="fab fa-whatsapp"></i> Whatsapp</div>
                         </a>
                     </li>
                 </ul>
