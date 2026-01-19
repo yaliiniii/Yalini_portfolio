@@ -104,32 +104,10 @@
             }
         }
 
-        /* Hobby Tags Styles */
+        /* Hobby Tags Styles - Legacy */
         .hobby-tag {
-            display: inline-flex;
-            align-items: center;
-            padding: 10px 20px;
-            margin: 8px;
-            background-color: #f0fdf4;
-            color: #166534;
-            border-radius: 50px;
-            font-size: 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid #bbf7d0;
-            cursor: default;
-        }
-
-        .hobby-tag:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            background-color: #dcfce7;
-            border-color: #86efac;
-        }
-
-        .hobby-tag i {
-            margin-right: 10px;
-            font-size: 1.1em;
+            display: none;
+            /* Deprecated in favor of new cards */
         }
 
         /* Achievement Card Styles - Premium Redesign */
@@ -234,6 +212,150 @@
         .achievement-card:hover .achievement-icon-float {
             color: rgba(16, 185, 129, 0.1);
             transform: rotate(0deg) scale(1.1);
+        }
+
+        /* Hobbies & Interests - Modern Glass Card Design */
+        .hobbies-section {
+            padding: 120px 0;
+            background: #fafafa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hobbies-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .hobby-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hobby-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            border-color: var(--hobby-color, #10b981);
+        }
+
+        .hobby-card:hover::before {
+            opacity: 1;
+        }
+
+        .hobby-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: var(--hobby-bg, #f0fdf4);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .hobby-icon-wrapper i {
+            font-size: 32px;
+            color: var(--hobby-color, #10b981);
+            transition: all 0.5s ease;
+        }
+
+        .hobby-card:hover .hobby-icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--hobby-color, #10b981);
+        }
+
+        .hobby-card:hover .hobby-icon-wrapper i {
+            color: #ffffff;
+        }
+
+        .hobby-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .hobby-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        /* Hobby Specific Colors */
+        .hb-sports {
+            --hobby-color: #3b82f6;
+            --hobby-bg: #eff6ff;
+        }
+
+        .hb-cooking {
+            --hobby-color: #ef4444;
+            --hobby-bg: #fef2f2;
+        }
+
+        .hb-art {
+            --hobby-color: #10b981;
+            --hobby-bg: #ecfdf5;
+        }
+
+        .hb-music {
+            --hobby-color: #8b5cf6;
+            --hobby-bg: #f5f3ff;
+        }
+
+        .hb-movies {
+            --hobby-color: #f59e0b;
+            --hobby-bg: #fffbeb;
+        }
+
+        .hb-travel {
+            --hobby-color: #06b6d4;
+            --hobby-bg: #ecfeff;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hobbies-container {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 20px;
+                padding: 0 20px;
+            }
+
+            .hobbies-section {
+                padding: 80px 0;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -366,28 +488,28 @@
                 <li class="cell-10"><a href="#" class="media-card w-inline-block">
                         <div class="div-block-109" style="background-color: rgb(217, 255, 182); width: 60px;"></div>
                         <h3 class="h3-bis">Frontend Technologies</h3>
-                        <p>HTML , CSS - 78%</p>
+                        <p>HTML , CSS </p>
                     </a></li>
                 <li class="cell-10"><a href="#" class="media-card w-inline-block">
                         <div class="div-block-109" style="background-color: rgb(217, 255, 182); width: 60px;"></div>
                         <h3 class="h3-bis">CSS Frameworks</h3>
-                        <p>Tailwind CSS - 70%</p>
+                        <p>Tailwind CSS</p>
                     </a></li>
                 <li class="cell-10"><a href="#" class="media-card w-inline-block">
                         <div class="div-block-109"
                             style="background-color: rgb(217, 255, 182); width: 60px; height: 10px;"></div>
                         <h3 lang="fr" class="h3-bis">Backend & Server-Side</h3>
-                        <p>Python, FastAPI, SQL - 70%</p>
+                        <p>Python, FastAPI, SQL</p>
                     </a></li>
                 <li class="cell-10"><a href="#" class="media-card w-inline-block">
                         <div class="div-block-109" style="background-color: rgb(217, 255, 182); width: 60px;"></div>
                         <h3 class="h3-bis">UI / UX & Design Tools</h3>
-                        <p>Figma - 75%</p>
+                        <p>Figma</p>
                     </a></li>
                 <li class="cell-10"><a href="#" class="media-card w-inline-block">
                         <div class="div-block-109" style="background-color: rgb(217, 255, 182); width: 60px;"></div>
                         <h3 class="h3-bis">Version Control</h3>
-                        <p>GitHub - 70%</p>
+                        <p>GitHub</p>
                     </a></li>
                 <li class="cell-10"><a href="#" class="media-card w-inline-block">
                         <div class="div-block-109"
@@ -512,29 +634,79 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Work Place Study</h3>
-                        <p class="project-description">As part of a workplace study, we connected with industry professionals through LinkedIn, gained insights into seven key fields within an IT company, and presented our findings through a structured presentation.</p>
+                        <p class="project-description">As part of a workplace study, we connected with industry
+                            professionals through LinkedIn, gained insights into seven key fields within an IT company,
+                            and presented our findings through a structured presentation.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="hobbies-interests" class="pr" style="padding-top: 80px; padding-bottom: 80px;">
+        <div id="hobbies-interests" class="hobbies-section">
             <div class="h2-block centered">
-                <h2>Hobbies & Interests<br></h2>
-                <p>Beyond the code.</p>
+                <h2 style="font-weight: 800; letter-spacing: -1.5px; margin-bottom: 12px; color: #111827;">Passions &
+                    Interests</h2>
+                <p style="color: #6b7280; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                    Beyond the code, these are the sparks that keep my creativity alive and my perspective fresh.
+                </p>
             </div>
 
-            <div class="project-grid" style="grid-template-columns: minmax(300px, 600px); justify-content: center;">
-                <!-- Hobbies & Interests -->
-                <div class="project-card" style="padding: 24px; cursor: default;">
-                    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-                        <span class="hobby-tag"><i class="fas fa-utensils"></i>Cooking</span>
-                        <span class="hobby-tag"><i class="fas fa-running"></i>Sports</span>
-                        <span class="hobby-tag"><i class="fas fa-music"></i>Listening Music</span>
-                        <span class="hobby-tag"><i class="fas fa-tv"></i>Watching Movie</span>
-                        <span class="hobby-tag"><i class="fas fa-palette"></i>Resin Art</span>
-                        <span class="hobby-tag"><i class="fas fa-plane"></i>Traveling</span>
+            <div class="hobbies-container">
+                <!-- Sports -->
+                <div class="hobby-card hb-sports">
+                    <div class="hobby-icon-wrapper">
+                        <i class="fas fa-running"></i>
                     </div>
+                    <h3>Sports</h3>
+                    <p>Former zone & district medalist. Hockey and Athletics are my favorites for staying active and
+                        disciplined.</p>
+                </div>
+
+                <!-- Cooking -->
+                <div class="hobby-card hb-cooking">
+                    <div class="hobby-icon-wrapper">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Cooking</h3>
+                    <p>Exploring flavors and traditional recipes. I find the process of crafting a meal deeply
+                        meditative.</p>
+                </div>
+
+                <!-- Resin Art -->
+                <div class="hobby-card hb-art">
+                    <div class="hobby-icon-wrapper">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Resin Art</h3>
+                    <p>Blending colors and textures to create unique, tangible pieces of art that reflect my creative
+                        vision.</p>
+                </div>
+
+                <!-- Music -->
+                <div class="hobby-card hb-music">
+                    <div class="hobby-icon-wrapper">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music</h3>
+                    <p>A constant companion that fuels my focus while coding and helps me unwind after a long day.</p>
+                </div>
+
+                <!-- Movies -->
+                <div class="hobby-card hb-movies">
+                    <div class="hobby-icon-wrapper">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Movies</h3>
+                    <p>I love immersive storytelling and cinematography that challenges my perception of the world.</p>
+                </div>
+
+                <!-- Traveling -->
+                <div class="hobby-card hb-travel">
+                    <div class="hobby-icon-wrapper">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Traveling</h3>
+                    <p>Exploring new cultures and landscapes. Every journey is an opportunity to learn and grow.</p>
                 </div>
             </div>
         </div>
@@ -556,7 +728,8 @@
                         <div class="achievement-category">
                             <i class="fas fa-medal"></i> Recognition
                         </div>
-                        <div class="achievement-title">Sports Achievements: Zone and District-level medalist in Hockey, Boxing, and Athletics, earning multiple podium finishes.</div>
+                        <div class="achievement-title">Sports Achievements: Zone and District-level medalist in Hockey,
+                            Boxing, and Athletics, earning multiple podium finishes.</div>
                     </div>
                     <i class="fas fa-medal achievement-icon-float"></i>
                 </div>
@@ -570,7 +743,8 @@
                         <div class="achievement-category">
                             <i class="fas fa-certificate"></i> Excellence
                         </div>
-                        <div class="achievement-title">Special Recognition in ICT Lab Activities for innovative problem-solving and idea presentation.</div>
+                        <div class="achievement-title">Special Recognition in ICT Lab Activities for innovative
+                            problem-solving and idea presentation.</div>
                     </div>
                     <i class="fas fa-trophy achievement-icon-float"></i>
                 </div>
@@ -584,7 +758,8 @@
                         <div class="achievement-category">
                             <i class="fas fa-hands-helping"></i> Certified Sports Achievements
                         </div>
-                        <div class="achievement-title">Certified for achievement in competitive sports, reflecting discipline, teamwork, and competitive excellence.</div>
+                        <div class="achievement-title">Certified for achievement in competitive sports, reflecting
+                            discipline, teamwork, and competitive excellence.</div>
                     </div>
                     <i class="fas fa-heart achievement-icon-float"></i>
                 </div>
